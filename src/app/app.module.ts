@@ -20,6 +20,7 @@ import { MyOrdersComponent } from './my-orders/my-orders.component';
 
 @NgModule({
   declarations: [
+    NavbarComponent,
     AppComponent,
     HomeComponent,
     ProductsComponent,
@@ -42,6 +43,7 @@ import { MyOrdersComponent } from './my-orders/my-orders.component';
       {path: 'shopping-cart', component: ShoppingCartComponent},
       {path: '', component: OrderSuccessComponent},
       {path: 'login', component: LoginComponent},
+      {path: 'my-orders', component: MyOrdersComponent},
 
       {path: 'admin-products', component: AdminProductsComponent},
       {path: 'admin-orders', component: AdminOrdersComponent}

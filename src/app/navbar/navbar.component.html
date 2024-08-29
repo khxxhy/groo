@@ -1,33 +1,56 @@
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark" aria-label="Ninth navbar example">
-    <div class="container-xl">
-      <a class="navbar-brand" href="#">Container XL</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsExample07XL" aria-controls="navbarsExample07XL" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
+<nav class="bg-gray-300 p-4">
+  <div class="container mx-auto flex justify-between items-center">
+    <div class="text-white text-xl font-bold">
+      <a routerLink="/">Groo</a>
+    </div>
 
-      <div class="collapse navbar-collapse" id="navbarsExample07XL">
-        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-          <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="#">Home</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Link</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link disabled" aria-disabled="true">Disabled</a>
-          </li>
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown" aria-expanded="false">Dropdown</a>
-            <ul class="dropdown-menu">
-              <li><a class="dropdown-item" href="#">Action</a></li>
-              <li><a class="dropdown-item" href="#">Another action</a></li>
-              <li><a class="dropdown-item" href="#">Something else here</a></li>
-            </ul>
-          </li>
-        </ul>
-        <form role="search">
-          <input class="form-control" type="search" placeholder="Search" aria-label="Search">
-        </form>
+    <div class="hidden md:flex space-x-4">
+      <a class="text-white hover:text-gray-400" routerLink="/shopping-cart"
+        >Shopping Cart</a
+      >
+      <div
+        class="relative"
+        (mouseenter)="toggleDropDown(true)"
+        (mouseleave)="toggleDropDown(false)"
+      >
+        <button class="text-white hover:text-gray-400 focus:outline-none">
+          <!-- add ' "cursor-not-allowed"disabled ' to disable cursor -->
+          Username
+        </button>
+
+        <div
+          class="absolute left-0 mt-2 w-48 bg-white rounded-md shadow-lg opacity-70 z-10 pointer-events"
+          *ngIf="dropDownOpen"
+        >
+          <a
+            class="block px-4 py-2 text-gray-800 hover:bg-gray-200"
+            routerLink="/my-orders"
+            >My Orders</a
+          >
+          <a
+            class="block px-4 py-2 text-gray-800 hover:bg-gray-200"
+            routerLink="/admin-orders"
+            >Manage Orders</a
+          >
+          <a
+            class="block px-4 py-2 text-gray-800 hover:bg-gray-200"
+            routerLink="/admin-products"
+            >Manage Products</a
+          >
+          <a
+            class="block px-4 py-2 text-gray-800 hover:bg-gray-200"
+            >Log Out</a
+          >
+        </div>
+      </div>
+      <div class="relative space-x-1">
+        <input
+          type="text"
+          class="p-2 right-2 top-1/2 transform -translate-x-1 text-gray-500 rounded-md pointer-events"
+          placeholder="Search"
+        />
+        <button type="button" class="p-2 bg-blue-500 rounded-md">search</button>
       </div>
     </div>
-  </nav>
+  </div>
+</nav>
