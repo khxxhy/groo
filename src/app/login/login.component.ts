@@ -13,6 +13,6 @@ export class LoginComponent {
 
 login() {
   const googleLogin = new firebase.auth.GoogleAuthProvider(); 
-  this.afAuth.signInWithRedirect(googleLogin);
+  this.afAuth.signInWithPopup(googleLogin);
 }
 }
