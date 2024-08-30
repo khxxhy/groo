@@ -8,14 +8,17 @@
       <a class="text-white hover:text-gray-400" routerLink="/shopping-cart"
         >Shopping Cart</a
       >
+      <a *ngIf="!user" class="text-white hover:text-gray-400" routerLink="/login"
+        >Log In</a
+      >
       <div
         class="relative"
         (mouseenter)="toggleDropDown(true)"
         (mouseleave)="toggleDropDown(false)"
       >
-        <button class="text-white hover:text-gray-400 focus:outline-none">
+        <button *ngIf="user" class="text-white hover:text-gray-400 focus:outline-none">
           <!-- add ' "cursor-not-allowed"disabled ' to disable cursor -->
-          Username
+         {{user.displayName}}
         </button>
 
         <div
@@ -38,7 +41,7 @@
             >Manage Products</a
           >
           <a
-            class="block px-4 py-2 text-gray-800 hover:bg-gray-200"
+            class="block px-4 py-2 text-gray-800 hover:bg-gray-200" (click)="logOut()"
             >Log Out</a
           >
         </div>
@@ -49,7 +52,7 @@
           class="p-2 right-2 top-1/2 transform -translate-x-1 text-gray-500 rounded-md pointer-events"
           placeholder="Search"
         />
-        <button type="button" class="p-2 bg-blue-500 rounded-md">search</button>
+        <button type="button" class="p-2 bg-blue-500 rounded-md hover:bg-white hover:border-2 hover:border-blue-500 ">search</button>
       </div>
     </div>
   </div>
