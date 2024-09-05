@@ -19,6 +19,7 @@ import { AdminOrdersComponent } from './admin/admin-orders/admin-orders.componen
 import { OrderSuccessComponent } from './order-success/order-success.component';
 import { MyOrdersComponent } from './my-orders/my-orders.component';
 import { AuthService } from './auth.service';
+import { AuthGuard as AuthGuard } from './auth-guard.service';
 
 @NgModule({
   declarations: [
@@ -40,19 +41,21 @@ import { AuthService } from './auth.service';
     AngularFireAuthModule,
     RouterModule.forRoot([
       {path: '', component: HomeComponent},
+      {path: 'login', component: LoginComponent,},
       {path: 'products', component: ProductsComponent},
-      {path: 'check-out', component: CheckOutComponent},
       {path: 'shopping-cart', component: ShoppingCartComponent},
-      {path: '', component: OrderSuccessComponent},
-      {path: 'login', component: LoginComponent},
-      {path: 'my-orders', component: MyOrdersComponent},
 
-      {path: 'admin-products', component: AdminProductsComponent},
-      {path: 'admin-orders', component: AdminOrdersComponent}
+      {path: 'check-out', component: CheckOutComponent, canActivate: [AuthGuard]},
+      {path: 'my-orders', component: MyOrdersComponent, canActivate: [AuthGuard]},
+      {path: 'order-success', component: OrderSuccessComponent,  canActivate: [AuthGuard]},
+
+      {path: 'admin-products', component: AdminProductsComponent, canActivate: [AuthGuard]},
+      {path: 'admin-orders', component: AdminOrdersComponent, canActivate: [AuthGuard]}
     ])
   ],
+  
   providers: [
-    AuthService
+    AuthService, AuthGuard
   ],
   bootstrap: [AppComponent]
 })
