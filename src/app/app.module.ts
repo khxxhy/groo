@@ -20,6 +20,7 @@ import { OrderSuccessComponent } from './order-success/order-success.component';
 import { MyOrdersComponent } from './my-orders/my-orders.component';
 import { AuthService } from './auth.service';
 import { AuthGuard as AuthGuard } from './auth-guard.service';
+import { AdminAuthGuard as AdminAuthGuard } from './admin-auth-guard.service';
 
 @NgModule({
   declarations: [
@@ -55,7 +56,7 @@ import { AuthGuard as AuthGuard } from './auth-guard.service';
   ],
   
   providers: [
-    AuthService, AuthGuard
+    AuthService, AuthGuard, AdminAuthGuard
   ],
   bootstrap: [AppComponent]
 })
