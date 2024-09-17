@@ -32,7 +32,13 @@
             "styles": [
               "src/styles.css"
             ],
-            "scripts": []
+            "scripts": [],
+
+            "allowedCommonJsDependencies": [
+              "firebase",
+              "@firebase/app",
+              "@angular/fire"
+            ]
           },
           "configurations": {
             "production": {
